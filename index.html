@@ -1,13 +1,55 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>JavaScript Lab</title>
+  <title>Employee Information</title>
 </head>
 <body>
-  hello
+
+  <h1>Employee Information</h1>
+
+
+  <div id="employeeInfo">
+    <form id="employeeForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+  
+      <label for="familyName">Family Name:</label>
+      <input type="text" id="familyName" name="familyName" required>
+  
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+  
+      <label for="payPerHour">Pay per Hour:</label>
+      <input type="number" id="payPerHour" name="payPerHour" required>
+  
+      <button type="button" id="addEmployeeButton">Add Employee</button>
+    </form>
+  </div>
+
+
+
+  <div id="employeeActions">
+    <label for="employeeIndex">Employee Index:</label>
+    <input type="number" id="employeeIndex" min="0" max="99" placeholder="Enter employee index">
+
+    <label for="timeInDate">Time In Date:</label>
+    <input type="date" id="timeInDate" name="timeInDate" required>
+
+    <label for="timeInTime">Time In Time:</label>
+    <input type="time" id="timeInTime" name="timeInTime" required>
+
+    <button id="punchInButton">Punch In</button>
+    <button id="employeeInfoDisplay">Display Info</button>
+  </div>
+
+
+
+
+
   <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
