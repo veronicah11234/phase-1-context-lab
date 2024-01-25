@@ -1,0 +1,29 @@
+/* index.css */
+
+#employeeInfoDisplay {
+    margin-top: 20px;
+}
+
+.employee-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.employee-info p {
+    margin: 0;
+}
+
+.employee-info h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.employee-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.employee-info li {
+    margin-bottom: 5px;
+}
