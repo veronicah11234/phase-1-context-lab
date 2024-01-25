@@ -95,16 +95,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to display employee information
 function displayInfo() {
     const adjustedEmployeeIndex = parseInt(document.getElementById("employeeIndex").value) - 1;
+    let displayElement = document.getElementById("employeeInfoDisplay");
 
     // Check if the displayElement exists or create it if not
-    let displayElement = document.getElementById("employeeInfoDisplay");
     if (!displayElement) {
         displayElement = document.createElement("div");
         displayElement.id = "employeeInfoDisplay";
         document.body.appendChild(displayElement);
     }
-
-    console.log("Display Element:", displayElement); // Log the display element
 
     if (adjustedEmployeeIndex >= 0 && adjustedEmployeeIndex < employees.length) {
         const employee = employees[adjustedEmployeeIndex];
@@ -119,6 +117,7 @@ function displayInfo() {
         const titleParagraph = document.createElement("p");
         const payParagraph = document.createElement("p");
         const timeInEventsHeading = document.createElement("h4");
+        const timeOutEventsHeading = document.createElement("h4");
 
         // Set the content of each element
         nameParagraph.innerText = `Name: ${employee.firstName} ${employee.familyName}`;
@@ -141,12 +140,30 @@ function displayInfo() {
             timeInEventsList.appendChild(noEventsItem);
         }
 
+        timeOutEventsHeading.innerText = "TimeOut Events:";
+        const timeOutEventsList = document.createElement("ul");
+
+        // Check if there are timeOutEvents for the employee
+        if (employee.timeOutEvents && employee.timeOutEvents.length > 0) {
+            employee.timeOutEvents.forEach((event) => {
+                const eventItem = document.createElement("li");
+                eventItem.innerText = `${event.type} - Date: ${event.date}, Hour: ${event.hour}`;
+                timeOutEventsList.appendChild(eventItem);
+            });
+        } else {
+            const noEventsItem = document.createElement("li");
+            noEventsItem.innerText = "No timeOut events found for the employee.";
+            timeOutEventsList.appendChild(noEventsItem);
+        }
+
         // Append the HTML elements to the infoDiv
         infoDiv.appendChild(nameParagraph);
         infoDiv.appendChild(titleParagraph);
         infoDiv.appendChild(payParagraph);
         infoDiv.appendChild(timeInEventsHeading);
         infoDiv.appendChild(timeInEventsList);
+        infoDiv.appendChild(timeOutEventsHeading);
+        infoDiv.appendChild(timeOutEventsList);
 
         // Clear the previous content and append the new infoDiv
         displayElement.innerHTML = '';
@@ -156,6 +173,8 @@ function displayInfo() {
         displayElement.innerHTML = "Employee not found.";
     }
 }
+
+
 
 
 
